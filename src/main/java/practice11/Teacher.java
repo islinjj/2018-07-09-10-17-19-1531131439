@@ -63,19 +63,19 @@ public class Teacher extends Person{
         return classesNumber.substring(0, classesNumber.length() - 2);
     }
 
-    public void updateStudent(Student student) {
+    public void updateStudent(Student student,Klass klass) {
         System.out.printf(
                 "I am %s. I know %s has joined Class %d.\n",
                 getName(),
                 student.getName(),
-                student.getKlass().getNumber());
+               klass.getNumber());
     }
 
-    public void updateLeader(Student leader) {
+    public void updateLeader(Student leader,Klass klass) {
         System.out.printf(
                 "I am %s. I know %s become Leader of Class %d.\n",
                 getName(),
                 leader.getName(),
-                leader.getKlass().getNumber());
+                klass.getNumber());
     }
 }

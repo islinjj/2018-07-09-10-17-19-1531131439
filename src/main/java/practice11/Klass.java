@@ -32,7 +32,7 @@ public class Klass {
             if (stu.id == student.id){
                 this.leader = student;
                 for(Teacher teacher: teacherList) {
-                    teacher.updateLeader(leader);
+                    teacher.updateLeader(leader,this);
                 }
                 return;
             }
@@ -43,7 +43,7 @@ public class Klass {
     public void appendMember(Student student){
         studentList.add(student);
         for (Teacher teacher : teacherList) {
-            teacher.updateStudent(student);
+            teacher.updateStudent(student,this);
         }
     }
 
