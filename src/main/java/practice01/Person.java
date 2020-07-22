@@ -9,7 +9,19 @@ public class Person {
         this.age = age;
     }
 
-    public void introduceSelf(){
-        System.out.println("My name is " + this.name + ". I am " + this.age + " years old.");
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String introduce(){
+        return "My name is " + this.name + ". I am " + this.age + " years old.";
     }
 }
