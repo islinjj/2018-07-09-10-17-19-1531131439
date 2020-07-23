@@ -7,12 +7,11 @@ public class Klass {
     private int number;
     private Student leader;
     private List<Student> studentList;
-    private List<Teacher> teacherList;
+    private Teacher teacher;
 
     public Klass(int number) {
         this.number = number;
         this.studentList = new ArrayList<>();
-        this.teacherList = new ArrayList<>();
     }
 
     public int getNumber() {
@@ -31,7 +30,7 @@ public class Klass {
         for (Student stu : studentList) {
             if (stu.id == student.id){
                 this.leader = student;
-                for(Teacher teacher: teacherList) {
+                if (teacher != null){
                     teacher.updateLeader(leader,this);
                 }
                 return;
@@ -42,7 +41,7 @@ public class Klass {
 
     public void appendMember(Student student){
         studentList.add(student);
-        for (Teacher teacher : teacherList) {
+        if (teacher != null){
             teacher.updateStudent(student,this);
         }
     }
@@ -54,7 +53,7 @@ public class Klass {
         return false;
     }
 
-    public void addTeacher(Teacher teacher) {
-        teacherList.add(teacher);
+    public void updateTeacher(Teacher teacher) {
+        this.teacher = teacher;
     }
 }

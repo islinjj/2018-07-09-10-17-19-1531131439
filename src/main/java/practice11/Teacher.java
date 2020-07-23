@@ -21,7 +21,7 @@ public class Teacher extends Person{
         super(id,name, age);
         this.classes = classes;
         for (Klass klass : classes) {
-            klass.addTeacher(this);
+            klass.updateTeacher(this);
         }
     }
 
