@@ -21,7 +21,7 @@ public class Teacher extends Person implements TeacherClassObserve {
         super(id,name, age);
         this.classes = classes;
         for (Klass klass : classes) {
-            klass.updateTeacher(this);
+            klass.addTeacher(this);
         }
     }
 

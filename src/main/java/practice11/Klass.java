@@ -7,11 +7,12 @@ public class Klass {
     private int number;
     private Student leader;
     private List<Student> studentList;
-    private Teacher teacher;
+    private List<Teacher> teacherList;
 
     public Klass(int number) {
         this.number = number;
         this.studentList = new ArrayList<>();
+        this.teacherList = new ArrayList<>();
     }
 
     public int getNumber() {
@@ -30,8 +31,9 @@ public class Klass {
         for (Student stu : studentList) {
             if (stu.id == student.id){
                 this.leader = student;
-                if (teacher != null){
+                for (Teacher teacher:teacherList) {
                     teacher.updateLeader(leader,this);
+
                 }
                 return;
             }
@@ -41,9 +43,9 @@ public class Klass {
 
     public void appendMember(Student student){
         studentList.add(student);
-        if (teacher != null){
-            teacher.updateStudent(student,this);
-        }
+            for (Teacher teacher:teacherList) {
+                teacher.updateStudent(student,this);
+            }
     }
 
     public boolean isIn(Student student){
@@ -53,7 +55,7 @@ public class Klass {
         return false;
     }
 
-    public void updateTeacher(Teacher teacher) {
-        this.teacher = teacher;
+    public void addTeacher(Teacher teacher) {
+        this.teacherList.add(teacher);
     }
 }
