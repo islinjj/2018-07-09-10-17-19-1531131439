@@ -2,7 +2,7 @@ package practice11;
 
 import java.util.LinkedList;
 
-public class Teacher extends Person{
+public class Teacher extends Person implements TeacherClassObserve {
 
     private Klass klass;
     private LinkedList<Klass> classes;
@@ -63,6 +63,7 @@ public class Teacher extends Person{
         return classesNumber.substring(0, classesNumber.length() - 2);
     }
 
+    @Override
     public void updateStudent(Student student,Klass klass) {
         System.out.printf(
                 "I am %s. I know %s has joined Class %d.\n",
@@ -71,6 +72,7 @@ public class Teacher extends Person{
                klass.getNumber());
     }
 
+    @Override
     public void updateLeader(Student leader,Klass klass) {
         System.out.printf(
                 "I am %s. I know %s become Leader of Class %d.\n",
