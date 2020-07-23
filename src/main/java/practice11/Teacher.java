@@ -50,7 +50,9 @@ public class Teacher extends Person implements TeacherClassObserve {
 
     public boolean isTeaching(Student student){
         for (Klass klass : classes) {
-            return klass.isIn(student);
+            if (klass.isIn(student)){
+                return true;
+            }
         }
         return false;
     }
